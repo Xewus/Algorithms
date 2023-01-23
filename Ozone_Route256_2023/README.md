@@ -1,1 +1,1 @@
-# OZON sandbox competitions Winter 2023
+# OZON sandbox competitions for Juniors Winter 2023
