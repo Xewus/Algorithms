@@ -1,4 +1,5 @@
-# (H) Валидация карты (25 баллов), Полное решение: 25 баллов,
+# (H) Валидация карты (25 баллов)
+# Полное решение: 25 баллов
 
 def create_mapa(n: int, m: int) -> list:
     mapa = [[['', 0] for _ in range(m)] for i in range(n)]
@@ -11,9 +12,11 @@ def create_mapa(n: int, m: int) -> list:
                 mapa[row][col] = [v, 0]
     return mapa
 
+
 def worm(mapa: list, was: set, row=0, col=0, color='') -> list:
     if row >= len(mapa) or col >= len(mapa[0]) or col < 0 or mapa[row][col][1] == 1:
         return mapa
+
     if mapa[row][col][0] != color:
         return mapa
     else:
@@ -32,12 +35,14 @@ def worm(mapa: list, was: set, row=0, col=0, color='') -> list:
         mapa = worm(mapa, was, row - 1, col - 1, mapa[row][col][0])
     return mapa
 
+
 def chek_mapa(mapa: list) -> str:
     for row in range(len(mapa)):
         for col in mapa[row]:
             if col[1] == 0:
                 return "NO"
     return 'YES'
+
 
 def solution():
     n, m = map(int, input().split())

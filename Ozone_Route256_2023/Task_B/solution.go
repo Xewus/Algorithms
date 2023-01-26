@@ -1,34 +1,35 @@
-// (B) Сумма к оплате (10 баллов), Частичное решение: 5 баллов.
+// (B) Сумма к оплате (10 баллов)
+// Полное решение: 10 баллов
 
 package main
-
+ 
 import (
+	"bufio"
 	"fmt"
-	"strconv"
-	"strings"
+	"os"
 )
-
+ 
 func main() {
-	var queries, prices, price, sum int
-
-	fmt.Scanln(&queries)
-	answers := make([]string, 0, queries)
-
-	for ; queries > 0; queries-- {
-		basket := make([]int, 10_001, 10_001)
-		fmt.Scan(&prices)
+	var a, b, t, sum int
+	input := bufio.NewReader(os.Stdin)
+	output := bufio.NewWriter(os.Stdout)
+	defer output.Flush()
+ 
+	fmt.Fscan(input, &a)
+ 
+	for ; a > 0; a-- {
+		basket := make(map[int]int)
+		fmt.Fscan(input, &b)
 		sum = 0
-
-		for ; prices > 0; prices-- {
-			fmt.Scan(&price)
-			basket[price]++
+		// Read data from StdIn
+		for ; b > 0; b-- {
+			fmt.Fscan(input, &t)
+			basket[t]++
 		}
-
+		// Calculate
 		for price, amount := range basket {
 			sum += (amount - amount/3) * price
 		}
-
-		answers = append(answers, strconv.Itoa(sum))
-	}
-	fmt.Println(strings.Join(answers, "\n"))
-}
+ 
+		fmt.Fprint(output, sum, "\n")
+	

@@ -1,4 +1,6 @@
-// G. Возможные друзья (20 баллов)
+// (G) Возможные друзья (20 баллов)
+// Частичное решение: 10 баллов
+
 package main
 
 import (
@@ -7,10 +9,6 @@ import (
 	"strconv"
 	"strings"
 )
-
-func main() {
-	solution()
-}
 
 func readTwoInt() (x, y int) {
 	fmt.Scan(&x, &y)
@@ -25,8 +23,8 @@ type User struct {
 
 func newUser(id int) *User {
 	u := &User{Id: id}
-	u.Friends = make(map[*User]struct{}, 8)
-	u.Recs = make(map[*User]int, 33)
+	u.Friends = make(map[*User]struct{})
+	u.Recs = make(map[*User]int)
 	return u
 }
 
@@ -83,7 +81,7 @@ func (u *User) recommendation() string {
 	return strings.Join(ans, " ")
 }
 
-func solution() {
+func main() {
 	var u, f, i int
 	us, ps := readTwoInt()
 	friendship := make(map[int]*User, us+us/2)

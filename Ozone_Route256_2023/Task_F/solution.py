@@ -1,13 +1,14 @@
-# (F) Отрезки времени (20 баллов), Полное решение: 20 баллов
+# (F) Отрезки времени (20 баллов)
+# Полное решение: 20 баллов
 
-def validate_time(time_: str):
+def validate_time(time_: str) -> tuple[int, bool]:
     h, m, s = map(int, time_.split(':'))
     if h < 0 or m < 0 or s < 0 or h > 23 or m > 59 or s > 59:
         return 0, False
     return s + m * 60 + h * 3600, True
 
 
-def validate_timeline(timeline: list[str]):
+def validate_timeline(timeline: list[str]) -> None | tuple[int, int]:
     start, ok = validate_time(timeline[0])
     if not ok:
         return 
@@ -20,15 +21,17 @@ def validate_timeline(timeline: list[str]):
 def main():
     queries = int(input())
     answers = [None] * queries
+
     for q in range(queries):
         valid = 1
         amount = int(input())
-        data = [None] * amount
+        timelines = [None] * amount
+
         for i in range(amount):
             if valid:
-                data[i] = input().split('-')
-                data[i] = validate_timeline(data[i])
-                if data[i] is None:
+                timelines[i] = input().split('-')
+                timelines[i] = validate_timeline(timelines[i])
+                if timelines[i] is None:
                     valid = 0
             else:
                 input()
@@ -37,15 +40,16 @@ def main():
             answers[q] = (('NO', 'YES')[valid])
             continue
  
-        line = [i for i in range(86_400)]
-        for timeline in data:
+        world_timline = [i for i in range(86_400)]
+        for timeline in timelines:
             if not valid:
                 break
             for sec in range(timeline[0], timeline[1] + 1):
-                if line[sec] is None:
+                if world_timline[sec] is None:
                     valid = 0
                     break
-                line[sec] = None
+                world_timline[sec] = None
+    
         answers[q] = (('NO', 'YES')[valid])
     print('\n'.join(answers))
 
