@@ -1,0 +1,20 @@
+// (K) Пользователи и заказы (SQL, 10 баллов)
+// Полное решение: 10 баллов
+
+// 1 4630 мс 178300 КБ
+SELECT DISTINCT users.id, users.name
+FROM users
+JOIN orders ON users.id=orders.user_id
+ORDER BY 2, 1;
+
+SELECT users.id, users.name
+FROM users
+JOIN orders ON users.id=orders.user_id
+ORDER BY 2, 1;
+
+// 2 4580 мс 178300 КБ
+SELECT users.id, users.name
+FROM users
+JOIN orders ON users.id=orders.user_id
+GROUP BY users.id
+ORDER BY 2, 1;
