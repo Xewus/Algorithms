@@ -21,12 +21,7 @@ type Record struct {
 func main() {
 	var amountTests uint16
 	var amountWindows, amountRecords int
-	f := os.Stdin
-	// f, err := os.Open("19")
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	input := bufio.NewReader(f)
+	input := bufio.NewReader(os.Stdin)
 
 	fmt.Fscanln(input, &amountTests)
 
