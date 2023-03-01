@@ -1,5 +1,5 @@
 // Golang 1.20.1	
-// OK  106ms  2.68Mb
+// OK  106 ms  2.68 Mb
 
 package main
 
