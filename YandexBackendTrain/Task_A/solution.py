@@ -1,4 +1,5 @@
-# Python 3.9 (PyPy 7.3.11)	
+# Python 3.9 (PyPy 7.3.11)
+# ID 79435124
 # OK  283 ms  41.90 Mb
 
 def inp() -> list:
