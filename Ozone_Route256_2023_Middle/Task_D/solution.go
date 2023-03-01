@@ -22,8 +22,7 @@ func main() {
 	var a uint16
 	var amount, res int
 	builder := strings.Builder{}
-	f := os.Stdin
-	input := bufio.NewReader(f)
+	input := bufio.NewReader(os.Stdin)
 	output := bufio.NewWriter(os.Stdout)
 	defer output.Flush()
  
