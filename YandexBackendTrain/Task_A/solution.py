@@ -1,5 +1,5 @@
 # Python 3.9 (PyPy 7.3.11)	
-# OK 283ms 41.90Mb
+# OK  283 ms  41.90 Mb
 
 def inp() -> list:
     input()
