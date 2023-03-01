@@ -9,9 +9,7 @@ import (
  
 func main() {
 	var a uint16
- 
 	fmt.Scanln(&a)
- 
 	for ; a > 0; a-- {
 		fmt.Println(checker())
 	}
