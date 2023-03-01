@@ -13,8 +13,7 @@ import (
 func main() {
 	var amountTests uint16
 	var amountTMs int
-	f := os.Stdin
-	input := bufio.NewReader(f)
+	input := bufio.NewReader(os.Stdin)
  
 	fmt.Fscan(input, &amountTests)
  
