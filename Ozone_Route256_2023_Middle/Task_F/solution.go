@@ -14,12 +14,7 @@ import (
 func main() {
 	var amountTests, amountPages uint8
 	var printed string
-	f := os.Stdin
-	// f, err := os.Open("35")
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	input := bufio.NewReader(f)
+	input := bufio.NewReader(os.Stdin)
 
 	fmt.Fscanln(input, &amountTests)
 
