@@ -32,4 +32,5 @@ func main() {
 		}
  
 		fmt.Fprint(output, sum, "\n")
-	
+	}
+}
